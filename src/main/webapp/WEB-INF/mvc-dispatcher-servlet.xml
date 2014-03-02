@@ -17,6 +17,7 @@
     http://www.springframework.org/schema/jdbc/spring-jdbc-3.2.xsd">
 
     <context:component-scan base-package="com.lucasian.batch.controller" />
+    <mvc:resources mapping="/**" location="/site/app/" />
     <mvc:annotation-driven />
 
     <!-- connect to MySQL database -->

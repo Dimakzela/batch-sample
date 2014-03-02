@@ -6,7 +6,6 @@
 
     <display-name>Counter Web Application</display-name>
 
-
     <!-- The filter-name matches name of a 'shiroFilter' bean inside applicationContext.xml -->
     <filter>
         <filter-name>shiroFilter</filter-name>
