@@ -86,6 +86,6 @@ public class XLS2CSVTasklet implements Tasklet {
     }
 
     public void setMinColumns(int minColumns) {
-        this.minColumns = minColumns;
+        this.minColumns = minColumns - 1;
     }
 }

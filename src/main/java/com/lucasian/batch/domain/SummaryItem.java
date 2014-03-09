@@ -67,21 +67,30 @@ public class SummaryItem {
         this.stageReceivedAmount = stageReceivedAmount;
     }
 
-    public BigDecimal getTotalReceivedAmount() {
-        return stageReceivedAmount;
+    public BigDecimal getStageSpentAmount() {
+        return stageSpentAmount;
     }
 
     public void setStageSpentAmount(BigDecimal stageSpentAmount) {
         this.stageSpentAmount = stageSpentAmount;
     }
 
+    public BigDecimal getTotalReceivedAmount() {
+        return stageReceivedAmount;
+    }
+
+    public void setTotalReceivedAmount(BigDecimal totalReceivedAmount) {
+        this.totalReceivedAmount = totalReceivedAmount;
+    }
+
     public BigDecimal getTotalSpentAmount() {
         return totalSpentAmount;
     }
 
-    public void setStageTotalAmount(BigDecimal totalSpentAmount) {
+    public void setTotalSpentAmount(BigDecimal totalSpentAmount) {
         this.totalSpentAmount = totalSpentAmount;
     }
+
 
 }
 
