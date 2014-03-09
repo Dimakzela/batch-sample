@@ -8,7 +8,10 @@
     "angular-resource": "1.2.6",
     "angular-cookies": "1.2.6",
     "angular-sanitize": "1.2.6",
-    "angular-route": "1.2.6"
+    "angular-route": "1.2.6",
+    "dropzone": "3.8.4",
+    "jQuery": "~1.10",
+    "lodash": "latest"
   },
   "devDependencies": {
     "angular-mocks": "1.2.6",

@@ -20,6 +20,9 @@
     <mvc:resources mapping="/**" location="/site/app/" />
     <mvc:annotation-driven />
 
+    <bean id="multipartResolver"
+        class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+
     <!-- connect to MySQL database -->
     <bean id="dataSource"
         class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -67,9 +70,9 @@
         <!-- </jdbc:initialize&#45;database> -->
 
     <!-- <bean id="resourceService" -->
-    <!--     class="org.springframework.batch.admin.web.resources.DefaultResourceService"> -->
-    <!--     <property name="servletPath" value="/batch" /> -->
-    <!-- </bean>  -->
+        <!--     class="org.springframework.batch.admin.web.resources.DefaultResourceService"> -->
+        <!--     <property name="servletPath" value="/batch" /> -->
+        <!-- </bean>  -->
 
     <!-- <bean id="jobRepository" -->
         <!--     class="org.springframework.batch.core.repository.support.JobRepositoryFactoryBean"> -->
