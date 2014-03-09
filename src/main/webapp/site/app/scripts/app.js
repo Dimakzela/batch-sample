@@ -12,6 +12,10 @@ angular.module('siteApp', [
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/detalle', {
+        templateUrl: 'views/detalle.html',
+        controller: 'DetalleCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
