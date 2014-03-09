@@ -43,6 +43,33 @@
         class="dropzone"></form>
 
     <br />
+
+    <table class="table table-striped" ng-show="summary">
+      <thead>
+        <tr>
+          <th>Gasto</th>
+          <th>Concepto</th>
+          <th>Monto aprobado</th>
+          <th>Monto modificado</th>
+          <th>Monto recibido por etapa</th>
+          <th>Monto gastado por etapa</th>
+          <th>Monto total recibido</th>
+          <th>Monto total gastado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in summary">
+          <td>{{item.expense}}</td>
+          <td>{{item.concept}}</td>
+          <td>{{item.approvedAmount}}</td>
+          <td>{{item.modifiedAmount}}</td>
+          <td>{{item.stageReceivedAmount}}</td>
+          <td>{{item.stageSpentAmount}}</td>
+          <td>{{item.totalReceivedAmount}}</td>
+          <td>{{item.totalSpentAmount}}</td>
+        </tr>
+      </tbody>
+    </table>
     
     <!-- Main component for a primary marketing message or call to action -->
     <div class="jumbotron">
