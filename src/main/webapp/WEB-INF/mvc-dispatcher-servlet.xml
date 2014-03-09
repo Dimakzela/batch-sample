@@ -107,6 +107,7 @@
         <property name="putEmptyParamsInPath" value="true"/>
     </bean>
 
+    <import resource="classpath:com/lucasian/batch/jobs/resumen.xml" />
 
 
 </beans>
