@@ -7,7 +7,7 @@
 	<div id="primary-left">
 		<ul>
 			<#list menuManager.menus as menu>
-			<#assign menu_url><@spring.url relativeUrl="/batch${menu.url}/"/></#assign>
+			<#assign menu_url><@spring.url relativeUrl="${menu.url}/"/></#assign>
 			<li><a href="${menu_url}">${menu.label}</a></li>
 			</#list>
 		</ul>
