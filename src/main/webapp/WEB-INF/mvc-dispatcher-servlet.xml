@@ -134,6 +134,7 @@
     </bean>
 
     <import resource="classpath:com/lucasian/batch/jobs/resumen.xml" />
+    <import resource="classpath:com/lucasian/batch/jobs/detalle.xml" />
 
 
 </beans>

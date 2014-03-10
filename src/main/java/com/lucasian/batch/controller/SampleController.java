@@ -22,4 +22,9 @@ public class SampleController {
         return entityManager.createQuery("SELECT i FROM SummaryItem as i", SummaryItem.class).getResultList();
     }
 
+    @RequestMapping(value = "/detail", method = RequestMethod.GET)
+    public @ResponseBody List<DetailItem> getDetailData() {
+        return entityManager.createQuery("SELECT i FROM DetailItem as i", DetailItem.class).getResultList();
+    }
+
 }

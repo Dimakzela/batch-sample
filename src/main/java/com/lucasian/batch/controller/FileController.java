@@ -31,9 +31,13 @@ public class FileController {
     @Qualifier("resumenJob")
     private Job resumenJob;
 
+    @Autowired
+    @Qualifier("detalleJob")
+    private Job detalleJob;
+
     @RequestMapping(value = "/upload", method = RequestMethod.POST, produces = "application/json")
     public @ResponseBody String uploadFile(@RequestParam MultipartFile file) throws Exception {
-        File dest = File.createTempFile("lucasian", ".xlsx");
+        File dest = File.createTempFile("lucasian1B", ".xlsx");
 
         file.transferTo(dest);
 
@@ -41,6 +45,22 @@ public class FileController {
                  .addString("inputResource", "file:" + dest.getAbsolutePath())
                  .addString("csvDirectory", "/tmp/")
                  .addString("csvFile", "resumen.csv")
+                 .addDate("currentRun", new Date())
+                 .toJobParameters());
+
+        return "Hola mundo";
+    }
+
+    @RequestMapping(value = "/uploadDetail", method = RequestMethod.POST, produces = "application/json")
+    public @ResponseBody String uploadDetailFile(@RequestParam MultipartFile file) throws Exception {
+        File dest = File.createTempFile("lucasian1C", ".xlsx");
+
+        file.transferTo(dest);
+
+        jobLauncher.run(detalleJob, new JobParametersBuilder()
+                 .addString("inputResource", "file:" + dest.getAbsolutePath())
+                 .addString("csvDirectory", "/tmp/")
+                 .addString("csvFile", "detalle.csv")
                  .addDate("currentRun", new Date())
                  .toJobParameters());
 

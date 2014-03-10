@@ -41,34 +41,28 @@
 
     <h2>Detalle</h2>
 
-    <form action="/batch-sample/file/upload"
+    <form action="/batch-sample/file/uploadDetail"
         class="dropzone"></form>
 
     <br />
 
-    <table class="table table-striped" ng-show="summary">
+    <table class="table table-striped" ng-show="detail">
       <thead>
         <tr>
-          <th>Gasto</th>
-          <th>Concepto</th>
-          <th>Monto aprobado</th>
-          <th>Monto modificado</th>
-          <th>Monto recibido por etapa</th>
-          <th>Monto gastado por etapa</th>
-          <th>Monto total recibido</th>
-          <th>Monto total gastado</th>
+          <th>Rubro</th>
+          <th>Fecha</th>
+          <th>No. Cheque</th>
+          <th>Nombre</th>
+          <th>Monto</th>
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="item in summary">
-          <td>{{item.expense}}</td>
-          <td>{{item.concept}}</td>
-          <td>{{item.approvedAmount}}</td>
-          <td>{{item.modifiedAmount}}</td>
-          <td>{{item.stageReceivedAmount}}</td>
-          <td>{{item.stageSpentAmount}}</td>
-          <td>{{item.totalReceivedAmount}}</td>
-          <td>{{item.totalSpentAmount}}</td>
+        <tr ng-repeat="item in detai">
+          <td>{{item.entry}}</td>
+          <td>{{item.expenseDate}}</td>
+          <td>{{item.checkNumber}}</td>
+          <td>{{item.checkName}}</td>
+          <td>{{item.checkAmount}}</td>
         </tr>
       </tbody>
     </table>

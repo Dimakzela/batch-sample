@@ -2,17 +2,17 @@
 
 angular.module('siteApp')
   .controller('DetalleCtrl', function ($scope, $http) {
-    var loadSummary = function () {
-      $http.get('/batch-sample/data.json').success(function (data) {
-        $scope.summary = data;
+    var loadDetail = function () {
+      $http.get('/batch-sample/detail.json').success(function (data) {
+        $scope.detail = data;
       });
     };
 
     jQuery(".dropzone").dropzone({
       success: function () {
-        loadSummary();
+        loadDetail();
       }
     });
 
-    loadSummary();
+    loadDetail();
   });
