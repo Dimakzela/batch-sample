@@ -29,7 +29,7 @@
     <bean id="recordSeparatorPolicyDetalle" class="org.springframework.batch.item.file.separator.SimpleRecordSeparatorPolicy" />
 
     <bean id="detalleReader" class="org.springframework.batch.item.file.FlatFileItemReader" scope="step">
-        <property name="linesToSkip" value="9" />
+        <property name="linesToSkip" value="11" />
         <property name="resource" value="file:#{jobParameters['csvDirectory']+jobParameters['csvFile']}" />
         <property name="recordSeparatorPolicy" ref="recordSeparatorPolicyDetalle"/>
         <property name="lineMapper" ref="detalleLineMapper"/>
@@ -55,7 +55,7 @@
         <property name="inputResource" value="#{jobParameters['inputResource']}" />
         <property name="targetDirectory" value="#{jobParameters['csvDirectory']}" />
         <property name="targetFile" value="#{jobParameters['csvFile']}" />
-        <property name="minColumns" value="9" />
+        <property name="minColumns" value="12" />
     </bean>
 
 </beans>

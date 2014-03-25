@@ -8,79 +8,56 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Project name</a>
+            <a class="navbar-brand" href="#">FORDECYT</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href>Home</a></li>
-                <li><a href="/batch-sample/index.html#/detalle">Detalle</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li class="dropdown-header">Nav header</li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>
-                </ul>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="../navbar/">Default</a></li>
-                <li><a href="../navbar-static-top/">Static top</a></li>
-                <li class="active"><a href="./">Fixed top</a></li>
-            </ul>
+                <li class="active"><a href>Resumen (Anexo 1B)</a></li>
+                <li><a href="/batch-sample/index.html#/detalle">Detalle (Anexo 1C)</a></li>
+	    </ul>
         </div><!--/.nav-collapse -->
     </div>
 </div>
 
 <div class="container">
 
+    <!-- Main component for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <h2>Seguimiento Contable y Financiero</h2>
+        <p>Este ejemplo es un pequeño ejercicio para ilustrar el poder de procesamiento en lotes, almacenamiento en base de datos, visualización de datos con algún criterio, así como el usao de la <a href="/batch-sample/batch/" target="_blank">consola de administración</a> de Spring Batch.</p>
+    </div>
+
     <form action="/batch-sample/file/upload"
         class="dropzone"></form>
 
-    <br />
+    <h2 ng-show="summary">Resumen - Anexos 1B</h2>
 
     <table class="table table-striped" ng-show="summary">
       <thead>
         <tr>
-          <th>Gasto</th>
-          <th>Concepto</th>
-          <th>Monto aprobado</th>
-          <th>Monto modificado</th>
-          <th>Monto recibido por etapa</th>
-          <th>Monto gastado por etapa</th>
-          <th>Monto total recibido</th>
-          <th>Monto total gastado</th>
+          <th class="text-center">Gasto</th>
+          <th class="text-center">Concepto</th>
+          <th class="text-center">Monto aprobado</th>
+          <th class="text-center">Monto modificado</th>
+          <th class="text-center">Monto recibido por etapa</th>
+          <th class="text-center">Monto gastado por etapa</th>
+          <th class="text-center">Monto total recibido</th>
+          <th class="text-center">Monto total gastado</th>
         </tr>
       </thead>
       <tbody>
         <tr ng-repeat="item in summary">
           <td>{{item.expense}}</td>
           <td>{{item.concept}}</td>
-          <td>{{item.approvedAmount}}</td>
-          <td>{{item.modifiedAmount}}</td>
-          <td>{{item.stageReceivedAmount}}</td>
-          <td>{{item.stageSpentAmount}}</td>
-          <td>{{item.totalReceivedAmount}}</td>
-          <td>{{item.totalSpentAmount}}</td>
+          <td align="right">{{item.approvedAmount | currency}}</td>
+          <td align="right">{{item.modifiedAmount | currency}}</td>
+          <td align="right">{{item.stageReceivedAmount | currency}}</td>
+          <td align="right">{{item.stageSpentAmount | currency}}</td>
+          <td align="right">{{item.totalReceivedAmount | currency}}</td>
+          <td align="right">{{item.totalSpentAmount | currency}}</td>
         </tr>
       </tbody>
-    </table>
-    
-    <!-- Main component for a primary marketing message or call to action -->
-    <div class="jumbotron">
-        <h1>Navbar example</h1>
-        <p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-        <p>To see the difference between static and fixed top navbars, just scroll.</p>
-        <p>
-        <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
-        </p>
-    </div>
-
+    </table>   
 
 
 </div> <!-- /container -->
