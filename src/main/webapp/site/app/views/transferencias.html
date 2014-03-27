@@ -1,4 +1,3 @@
-<!-- Fixed navbar -->
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -13,9 +12,9 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="/batch-sample/index.html">Resumen (Anexo 1B)</a></li>
-                <li class="active"><a href>Detalle (Anexo 1C)</a></li>
+								<li><a href="/batch-sample/index.html#/detalle">Detalle (Anexo 1C)</a></li>
 								<li><a href="/batch-sample/index.html#/presupuestos">Presupuestos</a></li>
-								<li><a href="/batch-sample/index.html#/transferencias">Transferencias</a></li>
+								<li class="active"><a href>Transferencias</a></li>
 								<li><a href="/batch-sample/index.html#/cuadroResumen">Cuadro Resumen</a></li>
             </ul>
         </div><!--/.nav-collapse -->
@@ -30,37 +29,26 @@
         <p>Este ejemplo es un pequeño ejercicio para ilustrar el poder de procesamiento en lotes, almacenamiento en base de datos, visualización de datos con algún criterio, así como el uso de la <a href="/batch-sample/batch/" target="_blank">consola de administración</a> de Spring Batch.</p>
     </div>
 
-    <form action="/batch-sample/file/uploadDetail"
+    <form action="/batch-sample/file/uploadTransfer"
         class="dropzone"></form>
     <br />
 
-    <h2 ng-show="detail">Detalle - Anexos 1C</h2>
+    <h2 ng-show="transfers">Transferencias</h2>
 
-    <table class="table table-striped" ng-show="detail">
+    <table class="table table-striped" ng-show="transfers">
       <thead>
-        <tr>
-          <th class="text-center">Rubro</th>
-          <th class="text-center">Fecha</th>
-          <th class="text-center">Cheque</th>
-          <th class="text-center">Nombre</th>
-          <th class="text-center">RFC</th>
+				<tr>
+					<th class="text-center">Fase</th>
+					<th class="text-center">Rubro</th>
           <th class="text-center">Monto</th>
-          <th class="text-center">Soporte Documental</th>
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="item in detail">
+        <tr ng-repeat="item in transfers">
+          <td>{{item.fase}}</td>
           <td>{{item.entry}}</td>
-          <td>{{item.expenseDate}}</td>
-          <td>{{item.checkNumber}}</td>
-          <td>{{item.checkName}}</td>
-          <td>{{item.rfc}}</td>
-          <td align="right">{{item.checkAmount | currency}}</td>
-          <td><input ng-show="item.checkAmount > 100000" type="file" /></td>
+          <td align="right">{{item.amount | currency}}</td>
         </tr>
       </tbody>
     </table>
-    
-
-
-</div> <!-- /container -->
+</div>

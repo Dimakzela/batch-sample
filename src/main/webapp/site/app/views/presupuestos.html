@@ -1,4 +1,3 @@
-<!-- Fixed navbar -->
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -12,12 +11,12 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href>Resumen (Anexo 1B)</a></li>
-                <li><a href="/batch-sample/index.html#/detalle">Detalle (Anexo 1C)</a></li>
-								<li><a href="/batch-sample/index.html#/presupuestos">Presupuestos</a></li>
+                <li><a href="/batch-sample/index.html">Resumen (Anexo 1B)</a></li>
+								<li><a href="/batch-sample/index.html#/detalle">Detalle (Anexo 1C)</a></li>
+								<li class="active"><a href>Presupuestos</a></li>
 								<li><a href="/batch-sample/index.html#/transferencias">Transferencias</a></li>
 								<li><a href="/batch-sample/index.html#/cuadroResumen">Cuadro Resumen</a></li>
-	    </ul>
+            </ul>
         </div><!--/.nav-collapse -->
     </div>
 </div>
@@ -30,37 +29,28 @@
         <p>Este ejemplo es un pequeño ejercicio para ilustrar el poder de procesamiento en lotes, almacenamiento en base de datos, visualización de datos con algún criterio, así como el uso de la <a href="/batch-sample/batch/" target="_blank">consola de administración</a> de Spring Batch.</p>
     </div>
 
-    <form action="/batch-sample/file/upload"
+    <form action="/batch-sample/file/uploadBudget"
         class="dropzone"></form>
+    <br />
 
-    <h2 ng-show="summary">Resumen - Anexos 1B</h2>
+    <h2 ng-show="budget">Presupuestos</h2>
 
-    <table class="table table-striped" ng-show="summary">
+    <table class="table table-striped" ng-show="budget">
       <thead>
-        <tr>
-          <th class="text-center">Gasto</th>
-          <th class="text-center">Concepto</th>
-          <th class="text-center">Monto aprobado</th>
-          <th class="text-center">Monto modificado</th>
-          <th class="text-center">Monto recibido por etapa</th>
-          <th class="text-center">Monto gastado por etapa</th>
-          <th class="text-center">Monto total recibido</th>
-          <th class="text-center">Monto total gastado</th>
+				<tr>
+					<th class="text-center">Fase</th>
+					<th class="text-center">Tipo</th>
+					<th class="text-center">Rubro</th>
+          <th class="text-center">Monto</th>
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="item in summary">
-          <td>{{item.expense}}</td>
-          <td>{{item.concept}}</td>
-          <td align="right">{{item.approvedAmount | currency}}</td>
-          <td align="right">{{item.modifiedAmount | currency}}</td>
-          <td align="right">{{item.stageReceivedAmount | currency}}</td>
-          <td align="right">{{item.stageSpentAmount | currency}}</td>
-          <td align="right">{{item.totalReceivedAmount | currency}}</td>
-          <td align="right">{{item.totalSpentAmount | currency}}</td>
+        <tr ng-repeat="item in budget">
+          <td>{{item.fase}}</td>
+          <td>{{item.budgetType}}</td>
+          <td>{{item.entry}}</td>
+          <td align="right">{{item.amount | currency}}</td>
         </tr>
       </tbody>
-    </table>   
-
-
-</div> <!-- /container -->
+    </table>
+</div>

@@ -34,8 +34,48 @@ public class FileController {
     @Autowired
     @Qualifier("detalleJob")
     private Job detalleJob;
+		
+		@Autowired
+		@Qualifier("budgetJob")
+		private Job budgetJob;
 
-    @RequestMapping(value = "/upload", method = RequestMethod.POST, produces = "application/json")
+		@Autowired
+		@Qualifier("transferJob")
+		private Job transferJob;
+
+		@RequestMapping(value = "/uploadBudget", method = RequestMethod.POST, produces = "application/json")
+		public @ResponseBody String uploadBudgetFile(@RequestParam MultipartFile file) throws Exception {
+        File dest = File.createTempFile("lucasianBudget", ".xlsx");
+
+        file.transferTo(dest);
+				
+        jobLauncher.run(budgetJob, new JobParametersBuilder()
+                 .addString("inputResource", "file:" + dest.getAbsolutePath())
+                 .addString("csvDirectory", "/tmp/")
+                 .addString("csvFile", "budget.csv")
+                 .addDate("currentRun", new Date())
+                 .toJobParameters());
+
+        return "Hola mundo";
+    }
+    
+		@RequestMapping(value = "/uploadTransfer", method = RequestMethod.POST, produces = "application/json")
+		public @ResponseBody String uploadTransferFile(@RequestParam MultipartFile file) throws Exception {
+        File dest = File.createTempFile("lucasianTransfer", ".xlsx");
+
+        file.transferTo(dest);
+				
+        jobLauncher.run(transferJob, new JobParametersBuilder()
+                 .addString("inputResource", "file:" + dest.getAbsolutePath())
+                 .addString("csvDirectory", "/tmp/")
+                 .addString("csvFile", "transfer.csv")
+                 .addDate("currentRun", new Date())
+                 .toJobParameters());
+
+        return "Hola mundo";
+    }
+		
+		@RequestMapping(value = "/upload", method = RequestMethod.POST, produces = "application/json")
     public @ResponseBody String uploadFile(@RequestParam MultipartFile file) throws Exception {
         File dest = File.createTempFile("lucasian1B", ".xlsx");
 

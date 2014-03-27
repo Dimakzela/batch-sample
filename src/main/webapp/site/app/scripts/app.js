@@ -16,6 +16,18 @@ angular.module('siteApp', [
         templateUrl: 'views/detalle.html',
         controller: 'DetalleCtrl'
       })
+      .when('/presupuestos', {
+        templateUrl: 'views/presupuestos.html',
+        controller: 'PresupuestosCtrl'
+      })
+      .when('/transferencias', {
+        templateUrl: 'views/transferencias.html',
+        controller: 'TransferenciasCtrl'
+      })
+      .when('/cuadroResumen', {
+        templateUrl: 'views/cuadroResumen.html',
+        controller: 'CuadroresumenCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
