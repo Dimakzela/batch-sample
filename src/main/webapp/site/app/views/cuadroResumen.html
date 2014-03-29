@@ -48,12 +48,12 @@
         <tr ng-repeat="item in resume">
           <td>{{item.entry}}</td>
           <td>{{item.type}}</td>
-          <td align="right">{{item.approvedAmount | currency}}</td>
-          <td align="right">{{item.recievedAmount | currency}}</td>
-          <td align="right">{{item.transfersAmount | currency}}</td>
-					<td align="right">{{item.modifiedAmount | currency}}</td>
-          <td align="right">{{item.totalReceivedAmount | currency}}</td>
-          <td align="right">{{item.balanceAmount | currency}}</td>
+          <td align="center">{{item.approvedAmount | currency}}</td>
+          <td align="center">{{item.receivedAmount | currency}}</td>
+          <td align="center">{{item.transfersAmount | currency}}</td>
+					<td align="center">{{item.modifiedAmount | currency}}</td>
+          <td align="center">{{item.totalReceivedAmount | currency}}</td>
+          <td align="center">{{item.balanceAmount | currency}}</td>
         </tr>
       </tbody>
     </table>   

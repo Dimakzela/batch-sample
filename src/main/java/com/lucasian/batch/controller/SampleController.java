@@ -11,6 +11,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.persistence.*;
 
+import java.math.BigDecimal;
+
 @Controller
 public class SampleController {
     
@@ -46,9 +48,40 @@ public class SampleController {
 			List<BudgetItem> budget = entityManager.createQuery("SELECT i FROM BudgetItem as i", BudgetItem.class).getResultList();
 			
 			List<TransferItem> transfers = entityManager.createQuery("SELECT i FROM TransferItem as i", TransferItem.class).getResultList();
-		
-			for (BudgetItem item : budget){
-				System.out.println(item.getEntry());
+			
+			for (BudgetItem i : budget){
+				Map<String, Object> item = new HashMap<String, Object>();					
+
+				item.put("entry", i.getEntry());
+				item.put("type", i.getBudgetType());
+				item.put("approvedAmount", i.getAmount());
+				
+				for(TransferItem j : transfers){
+					if(j.getEntry().equals(i.getEntry()) && j.getFase().equals(i.getFase())){
+						item.put("transfersAmount", j.getAmount());
+						item.put("modifiedAmount", i.getAmount().add(j.getAmount()));
+						break;
+					}
+				}
+
+				BigDecimal receivedAmount = new BigDecimal(0);				
+				for(DetailItem j : details){
+					if(j.getEntry().equals(i.getEntry())){
+						receivedAmount.add(j.getCheckAmount());
+					}
+				}
+				
+				item.put("receivedAmount", receivedAmount);
+				
+				BigDecimal totalReceivedAmount = receivedAmount;
+
+				if(item.containsKey("modifiedAmount")){
+					totalReceivedAmount.add((BigDecimal)item.get("modifiedAmount"));	
+				} 
+				
+				item.put("totalReceivedAmount", totalReceivedAmount);	
+
+				result.add(item);
 			}
 
 			return result;
